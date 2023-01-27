@@ -27,7 +27,7 @@ Gait speed is an important factor for gait analysis experiments as it is an impo
 * ML_data: folder with a single matrix of all 6 signals for a particular limb (concatenated using the files from . For example, "RS_ML_matrix.csv" has 12102 rows for each of the strides and 606, strides (6 signals * 101 timepoints = 606 features). The same is available for the left shank ("LS_ML_matrix.csv"). 
 * PCA_data: principal components and scores of signals in the "RS_ML_matrix.csv" file that I tried training ML models with, but had poor results. See more in the gait_speed_classification_exploratory.ipynb notebook.
 * statistical_features: statistical data such as mean, median, min, and max signals in the of the "RS_ML_matrix.csv" file that I tried training ML models with, but had poor results. See more in the gait_speed_classification_exploratory.ipynb notebook.
-Note: the pre_processing.ipynb notebook walks through how I went from the data downloaded from the repository to the data in the ML matrices.
+##### Note: the pre_processing.ipynb notebook walks through how I went from the data downloaded from the repository to the data in the ML matrices.
 #### Notebooks folder:
 * pre_processing.ipynb - the pre-processing steps to get from the original data to a structure ready for training models
 * gait_speed_classification.ipynb - development of the DL model
