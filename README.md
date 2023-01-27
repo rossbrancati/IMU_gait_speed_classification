@@ -19,7 +19,7 @@ Gait speed is an important factor for gait analysis experiments as it is an impo
 
 
 ### Repository contents:
-* Data Folder:
+* Data Folder: <br>
               * data: contains folders downloaded from open source repository with a folder for each subject. Each file within the folder is an indiviudual trial at a certain walking speed. See the paper referenced above for details. 
               * strides: 
                * variable_matrices_strides: Each file is an angular velocity signal from an IMU (4 total IMUs * 3 planes of motion = 12 total variables), where each row is a stride and each column is a timepoint of the gait cycle (normalized to 100 data points). There are 3 columns identifying the subject, speed, and trial #. Each other column represents a timepoint of the gait cycle and each row represents a stride (12102 total strides)
