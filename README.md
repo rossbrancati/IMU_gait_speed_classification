@@ -45,3 +45,8 @@ Gait speed is an important factor for gait analysis experiments as it is an impo
 * "RS_ML_matrix_std.csv" and "LS_ML_matrix_std.csv" - the same files, but standardized using a z-transformation (eventually used for the training deep learning model)
 
 
+### Instructions for other notebooks:
+* The exploratory notebook is where I started with pre-processing the data, running some simple classifiers, extracting statistical features and principal components, and ultimately landing on a deep learning approach. Check out this notebook if you are interested in where to start when working with a new dataset. 
+* IMU_gait_speed_classification_DL_modeling.ipynb is where I created the original deep learning model used in the google colab notebook. If you're interested in how I created the model, check out this notebook. It has some similarities with the exploratory notebook. 
+* IMU_gait_speed_classification_google_colab.ipynb - if you are just interested in training and testing the deep learning model using leave one subject out cross validation, run this notebook in google colab (instructions in notebook). The input data is "RS_ML_matrix_std.csv", but you can use other files as well such as the left shank or non-standardized data.
+
