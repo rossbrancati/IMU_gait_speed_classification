@@ -20,8 +20,9 @@ Gait speed is an important factor for gait analysis experiments as it is an impo
 
 ### Repository contents:
 #### Data Folder
--Data: contains folders downloaded from open source repository with a folder for each subject. Each file within the folder is an indiviudual trial at a certain walking speed. See the paper referenced above for details. 
--Strides: 
+#### Data
+* contains folders downloaded from open source repository with a folder for each subject. Each file within the folder is an indiviudual trial at a certain walking speed. See the paper referenced above for details.
+#### Strides 
 * variable_matrices_strides: Each file is an angular velocity signal from an IMU (4 total IMUs * 3 planes of motion = 12 total variables), where each row is a stride and each column is a timepoint of the gait cycle (normalized to 100 data points). There are 3 columns identifying the subject, speed, and trial #. Each other column represents a timepoint of the gait cycle and each row represents a stride (12102 total strides)
 * variable_matrices_strides_standard: the same data as variable_matrices_strides folder, just z transformed along the time series axis to standardize the range of each of the IMU signals. 
 * ML_data: folder with a single matrix of all 6 signals for a particular limb (concatenated using the files from . For example, "RS_ML_matrix.csv" has 12102 rows for each of the strides and 606, strides (6 signals * 101 timepoints = 606 features). The same is available for the left shank ("LS_ML_matrix.csv"). 
