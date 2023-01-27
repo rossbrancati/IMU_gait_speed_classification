@@ -1,5 +1,5 @@
 # IMU_gait_speed_classification
-A deep learning approach for classifying gait speed using signals recorded from IMUs
+A deep learning approach for classifying gait speed using signals recorded with IMUs
 
 ### Introduction:
 Gait speed (i.e., the time it takes to ambulate over a certain distance) is an important predictor of aging, pathology, or injury. As people age or suffer from a musculoskeletal disorder, they tend to walk slower. Typically, gait speed is collected in a laboratory environment using timing gaits and other similar equipment. Wearable sensors such as inertial measurement units (IMUs), offer an alternative option for recording and analyzing gait outside of a laboratory environment. Classifying gait speed using wearable sensors could be a viable option for measuring and longitudinally monitoring gait speed.
