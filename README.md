@@ -20,27 +20,7 @@ Gait speed is an important factor for gait analysis experiments as it is an impo
 
 ### Repository contents:
 
-
-#### data Folder
-
-#### raw_data
-* contains folders downloaded from open source repository with a folder for each subject. Each file within the folder is an indiviudual trial at a certain walking speed. See the paper referenced above for details.
-
-#### strides 
-* variable_matrices_strides: Each file is an angular velocity signal from an IMU (4 total IMUs * 3 planes of motion = 12 total variables), where each row is a stride and each column is a timepoint of the gait cycle (normalized to 100 data points). There are 3 columns identifying the subject, speed, and trial #. Each other column represents a timepoint of the gait cycle and each row represents a stride (12102 total strides)
-* variable_matrices_strides_standard: the same data as variable_matrices_strides folder, just z transformed along the time series axis to standardize the range of each of the IMU signals. 
-* ML_data: folder with a single matrix of all 6 signals for a particular limb (concatenated using the files from . For example, "RS_ML_matrix.csv" has 12102 rows for each of the strides and 606, strides (6 signals * 101 timepoints = 606 features). The same is available for the left shank ("LS_ML_matrix.csv"). 
-* PCA_data: principal components and scores of signals in the "RS_ML_matrix.csv" file that I tried training ML models with, but had poor results. See more in the gait_speed_classification_exploratory.ipynb notebook.
-* statistical_features: statistical data such as mean, median, min, and max signals in the of the "RS_ML_matrix.csv" file that I tried training ML models with, but had poor results. See more in the gait_speed_classification_exploratory.ipynb notebook.
-
-#### trials: similar data to the strides folder, but each observation is an ensemble average of all strides within a trial (396 total observations = 22 subejects * 3 speeds * 6 trials)
-
-### conditions: similar data to the strides folder, but each observation is an ensemble average of all strides within a speed condition (66 total observations = 22 subejects * 3 speeds)
-
-##### Note: the pre_processing.ipynb notebook walks through how I went from the data downloaded from the repository to the data in the ML matrices.
-
-
-#### notebooks folder:
+#### notebooks:
 * pre_processing.ipynb - the pre-processing steps to get from the original data to a structure ready for training models
 * IMU_gait_speed_classification_DL_modeling.ipynb - development of the DL model
 * IMU_gait_speed_classification_google_colab.ipynb - a notebook developed in Google Colab that I used to train the model online Colab's GPU.
@@ -49,8 +29,8 @@ Gait speed is an important factor for gait analysis experiments as it is an impo
 
 ### Instructions for pre-processing the data
 * The following steps will walk through taking the data from the repository and getting it into a format that is usable for training models
-1) Download the "data" folder (contains a folder for each subject with individual trials as files)
-2) Use the pre_processing.ipynb notebook to restructure and standardize the data. You may need to change file paths depending on where you store the data and notebook files.
+1) Download all data from the open source repository (https://doi.org/10.6084/m9.figshare.7778255.v3). Save it in a folder titled "data"
+2) Use the pre_processing.ipynb notebook to restructure and standardize the data. You may need to change file paths depending on where you store the data and notebook files. You will also need to create empty folders to store the data. 
 3) The end result of using pre_processing.ipynb will be the following files: 
 * "RS_ML_matrix.csv" and "LS_ML_matrix.csv" - restructured data (not standardized) where each row is a stride (12102 total strides) and each column is a timepoint of the gait cycle for a signal (6 signals * 101 timepoints per signal = 606 total features). Subject ID, trial number, and speed are also in these files. 
 * "RS_ML_matrix_std.csv" and "LS_ML_matrix_std.csv" - the same files, but standardized using a z-transformation (eventually used for the training deep learning model)
@@ -60,4 +40,6 @@ Gait speed is an important factor for gait analysis experiments as it is an impo
 * The exploratory notebook is where I started with pre-processing the data, running some simple classifiers, extracting statistical features and principal components, and ultimately landing on a deep learning approach. Check out this notebook if you are interested in where to start when working with a new dataset. 
 * IMU_gait_speed_classification_DL_modeling.ipynb is where I created the original deep learning model used in the google colab notebook. If you're interested in how I created the model, check out this notebook. It has some similarities with the exploratory notebook. 
 * IMU_gait_speed_classification_google_colab.ipynb - if you are just interested in training and testing the deep learning model using leave one subject out cross validation, run this notebook in google colab (instructions in notebook). The input data is "RS_ML_matrix_std.csv", but you can use other files as well such as the left shank or non-standardized data.
+
+### Once you have the data pre-processed and into the format for the deep learning model, you can run it through the google colab notebook
 
